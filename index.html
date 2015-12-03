@@ -1,42 +1,52 @@
-<script src="js/loadJSON.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/g/riot@2.2(riot.min.js+compiler.min.js)"></script>
-<script src="http://maps.googleapis.com/maps/api/js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
-<script type="text/javascript">
-if ('addEventListener' in document) {
-    document.addEventListener('DOMContentLoaded', function() {
-        FastClick.attach(document.body);
-    }, false);
-}</script>
-<script src="js/tags/app.tag" type="riot/tag"></script>
-<script src="js/tags/map.tag" type="riot/tag"></script>
-<script src="js/tags/ui.tag" type="riot/tag"></script>
-<script src="js/tags/ui-button.tag" type="riot/tag"></script>
-<script src="js/tags/listing.tag" type="riot/tag"></script>
-<script src="js/tags/letter-button.tag" type="riot/tag"></script>
-<script src="js/tags/gallery.tag" type="riot/tag"></script>
-<script src="js/riotcontrol.js"></script>
-<script src="js/exploreStore.js"></script>
-<script type="text/javascript">
-	var exploreStore = new ExploreStore(); // Create a store instance.
-  	RiotControl.addStore(exploreStore); // Register the store in central dispatch.
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="scss/style.min.css">
+	<script src="js/loadJSON.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/g/riot@2.2(riot.min.js+compiler.min.js)"></script>
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+	<script type="text/javascript">
+	if ('addEventListener' in document) {
+	    document.addEventListener('DOMContentLoaded', function() {
+	        FastClick.attach(document.body);
+	    }, false);
+	}</script>
+	<script src="js/tags/app.tag" type="riot/tag"></script>
+	<script src="js/tags/map.tag" type="riot/tag"></script>
+	<script src="js/tags/ui.tag" type="riot/tag"></script>
+	<script src="js/tags/ui-button.tag" type="riot/tag"></script>
+	<script src="js/tags/listing.tag" type="riot/tag"></script>
+	<script src="js/tags/letter-button.tag" type="riot/tag"></script>
+	<script src="js/tags/gallery.tag" type="riot/tag"></script>
+	<script src="js/riotcontrol.js"></script>
+	<script src="js/exploreStore.js"></script>
+	<script type="text/javascript">
+		var exploreStore = new ExploreStore(); // Create a store instance.
+	  	RiotControl.addStore(exploreStore); // Register the store in central dispatch.
 
-	loadJSON('http://apa.localhost.com/api/apa/explore',
-		function(data) {
-			window.artworks = data.artworks;
-			window.themes = data.themes;
-			riot.mount('app');//once data exists, mount app
-		},
-		function(xhr) { console.error(xhr); }
-	);
-</script>
+		loadJSON('http://dev-publicart.pantheon.io/api/apa/explore',
+			function(data) {
+				window.artworks = data.artworks;
+				window.themes = data.themes;
+				riot.mount('app');//once data exists, mount app
+			},
+			function(xhr) { console.error(xhr); }
+		);
+	</script>
+</head>
+	<body>
+		<app><app/>
+		<div id="app-loader">
+			<div class="app-loader-content">
+				<h1>Loading public art information...</h1>
+				<div id="spinner"></div>
+			</div>
+		</div>
+	</body>
+</html>
 
-<app><app/>
-<div id="app-loader">
-	<div class="app-loader-content">
-		<h1>Loading public art information...</h1>
-		<div id="spinner"></div>
-	</div>
-</div>
+
 
