@@ -1,0 +1,441 @@
+/********************
+** Font Config
+********************/
+@charset "UTF-8";
+
+$baseFontSize:          16;
+$baseLineHeight:        1.875em;
+
+$f-sans: 				"proxima-nova", sans-serif;
+$f-serif:				"kepler-std", Georgia, serif;
+$f-serif-sc:			"kepler-std-semicondensed", Georgia, serif;
+$f-icons:				"Genericons";
+$f-apa:					"apa";
+
+@font-face {
+    font-family: 'Genericons';
+    src: url('../fonts/Genericons.eot');
+    src: url('../fonts/Genericons.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Genericons.ttf') format('truetype'),
+         url('../fonts/Genericons.svg#genericonsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: "apa";
+  src:url("../fonts/apa-icons/apa.eot");
+  src:url("../fonts/apa-icons/apa.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/apa-icons/apa.woff") format("woff"),
+    url("../fonts/apa-icons/apa.ttf") format("truetype"),
+    url("../fonts/apa-icons/apa.svg#apa") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+/*****************************
+** Icon Font Styles & Classes
+******************************/
+
+[data-icon]:before {
+  font-family: "apa" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "apa" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gallery:before {
+  content: "a";
+}
+.icon-index:before {
+  content: "b";
+}
+.icon-map:before {
+  content: "c";
+}
+.icon-both:before {
+  content: "d";
+}
+.icon-cycling:before {
+  content: "e";
+}
+.icon-distance:before {
+  content: "f";
+}
+.icon-walking:before {
+  content: "g";
+}
+.icon-blank-pin:before {
+  content: "h";
+}
+
+.icon-mww {
+	height: 40px;
+    width: 40px;
+    position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background-color: rgba($c-white, .9);
+    &:before{
+    	@include font-size(30);
+    	content: "i";
+		color: $c-green-dark;
+		@extend .absolute-center;
+    }
+	@include bp(sml) {
+		height: 55px;
+		width: 55px;
+		&:before{
+	    	@include font-size(42);
+	    }
+	}
+}
+
+
+/********************
+** Font Styles
+********************/
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { display: block; font-weight: normal; }
+
+
+p { 
+	@include font-size(17);
+	@include line-height(26);
+	@include bp(sml) {
+		@include font-size(18);
+		@include line-height(31);
+    }
+}
+
+
+p + ul , p + ol {
+	margin-top: -17px!important;
+}
+
+a {
+	text-decoration: none;
+}
+
+/********************
+** Font Styles
+********************/
+
+.sans {
+	font-family: $f-sans;
+	font-weight: 400;
+
+	&.light {
+		font-weight: 300;
+	}
+	&.bold {
+		font-weight: 600;
+	}
+}
+
+.serif {
+	font-family: $f-serif;
+	font-weight: 400;
+}
+
+.serif-cond {
+	font-family: $f-serif-sc;
+	font-weight: 500;
+}
+
+/********************
+** Generic font modifiers
+********************/
+.up {
+	text-transform: uppercase;
+}
+
+.down {
+	text-transform: lowercase;
+}
+
+.cap {
+	text-transform: capitalize;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.centered {
+	text-align: center;
+}
+.bold{
+	font-weight: 600;
+}
+.align-left {
+	@include bp(sml) {
+		text-align: left;
+	}
+}
+.align-right {
+	@include bp(sml) {
+		text-align: right;
+	}
+}
+
+
+
+/********************
+** Tracking
+********************/
+.tracking-25{ @include letter-spacing(25) }
+.tracking-50{ @include letter-spacing(50) }
+.tracking-75{ @include letter-spacing(75) }
+.tracking-100{ @include letter-spacing(100) }
+.tracking-125{ @include letter-spacing(125) }
+.tracking-150{ @include letter-spacing(150) }
+.tracking-175{ @include letter-spacing(175) }
+.tracking-200{ @include letter-spacing(200) }
+
+
+/*********************************************
+** Basic page // text area content typography
+*********************************************/
+.unordered-list {
+    list-style: none;
+    padding:0;
+    margin:0 0 35px 0;
+    li { 
+	    padding-left: 1em; 
+	    text-indent: -1em;
+	    margin-bottom: 10px;
+	    	@include font-size(15);
+			@include line-height(24);
+			@include bp(med) {
+				@include font-size(18);
+				@include line-height(34);
+		    }
+	    &:before {
+	    	margin-right: 5px;
+		    content: "• ";
+		    color: $c-red; /* or whatever color you prefer */
+	    }
+	}
+}
+.entry-content {
+	position: relative;
+	
+	p,blockquote,figure,ul,ol,h2,h3,h4{
+		margin: 15px 0;
+		@include bp(med) {
+			margin: 20px 0;
+		}
+	}
+	
+	ul {
+		@extend .unordered-list;
+	}
+
+	h2 {
+		@extend .serif-cond;
+		margin: 17px 0 10px 0;
+		letter-spacing: .5px;
+		font-weight: 300;
+		@include font-size(30);
+		@include line-height(36);
+		@include bp(sml) {
+			margin: 30px 0 20px 0;
+			letter-spacing: 1.7px;
+			@include font-size(36);
+			@include line-height(42);
+		}
+	}
+
+	h3 {
+		margin-bottom: 10px;
+		@extend .sans, .bold, .tracking-50, .up;
+		@include font-size(19);
+		@include bp(sml) {
+			margin-bottom: 15px;
+			@include font-size(20);
+		}
+	}
+
+	a {
+		position: relative;
+		color: $c-base;
+		text-decoration: none;
+		border-bottom: 1px solid rgba($c-base, .5);
+		@include transition(all 300ms ease-in-out);
+		&:hover {
+			border-bottom: 1px solid rgba($c-yellow, 1);
+		}
+	}
+	blockquote {
+		display: inline;
+		float: right;
+		width: 100%;
+		@include bp(sml) {
+			width: 70%;
+			margin-top: 0; 
+		}
+		p {
+			position: relative;
+			font-family: $f-serif;
+			font-style: italic;
+			padding-left: 40px;
+			margin-bottom: 20px;
+			transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			@include font-size (18);
+			@include bp(sml) {
+				padding-left: 80px;
+				margin: 20px 0;
+				@include font-size (28);
+				@include line-height (52);
+			}
+			&:before {
+				content: '“';
+				color: $c-green;
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 10px;
+				height: 40px;
+				width: 40px;
+				@include transform(translate(-50%, 0));
+				@include font-size (72);
+				@include line-height (72);
+				@include bp(sml) {
+					left: 40px;
+				}
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				width: 1px;
+				height: calc(100% - 40px);
+				background-color: $c-gray;
+				bottom: 0;
+				left: 10px;
+				@include transform(translate(-50%, 0));
+				@include bp(sml) {
+					left: 40px;
+				}
+			}
+		}
+	}
+	hr{
+		height: 1px;
+		background-color: #D0D0D0;
+	}
+	figure{
+		margin: 20px auto;
+		display: inline-block;
+		@include bp(sml) {
+			margin: 25px 0;
+		}
+		@include bp(med) {
+			margin: 33px 0;
+		}
+		&.aligncenter,&.alignleft,&.alignright,&.alignnone{
+			display: table;
+		}
+
+		figcaption{
+			display: table-caption; 
+			caption-side: bottom;
+			width: 100%;
+			color: $c-white;
+			background-color: $c-gray-dark;
+			padding: 10px 15px;
+			@include font-size(15);
+			@include line-height(24);
+		}
+	}
+	.aligncenter{
+		margin: 20px auto;
+		clear: both;
+		width: auto;
+	}
+
+	img.alignnone {
+		float: left;
+	}
+
+	img.size-full {
+		display: block;
+	}
+
+	figure.alignleft, img.alignleft {
+		margin: 20px auto;
+		@include bp(sml) {
+			float: left;
+			margin: 33px 33px 33px 0px;
+		}
+	}
+	figure.alignright, img.alignright {
+		margin: 20px auto;
+		@include bp(sml) {
+			float: right;
+			margin: 33px 0px 33px 33px;
+		}
+	}
+	p:first-of-type{
+		margin-top: 0;
+	}
+}
+
+.entry-text {
+	text-align: center;
+}
+
+#breadcrumbs {
+	padding-top: 15px;
+	padding-left: 15px;
+	@include bp(med) {
+		padding-top: 30px;
+		padding-left: 50px;
+		margin-bottom: -15px;
+	}
+	a {
+		position: relative;
+		color: $c-base;
+		text-decoration: none;
+		margin: 0 3px;
+		@include transition(all 300ms ease-in-out);
+		&:hover {
+			color: $c-teal!important;
+		}
+	}
+}
+
+.single-tour {
+	#breadcrumbs a:hover {
+		color: $c-red;
+	}
+}
+
+.single-apa_now, .tax-apa-now-item {
+	#breadcrumbs a:hover {
+		color: $c-teal;
+	}
+}
+

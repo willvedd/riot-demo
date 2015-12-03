@@ -1,0 +1,124 @@
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@mixin animation($animation) {
+	-webkit-animation: #{$animation};
+	-moz-animation: #{$animation};
+	-ms-animation: #{$animation};
+	animation: #{$animation};
+}
+@mixin animation-delay($animation-delay) {
+	-webkit-animation-delay: #{$animation-delay};
+	-ms-animation-delay: #{$animation-delay};
+	-moz-animation-delay: #{$animation-delay};
+	animation-delay: #{$animation-delay};
+}
+
+@include keyframes(hover) {
+	0%, 10% {
+		opacity: .6;
+		@include transform(translateY(0));
+	}
+	50% {
+		opacity: .9;
+		@include transform(translateY(5px));
+	}
+	90%, 100%{
+		opacity: .6;
+	}
+}
+
+@include keyframes(fade-in) {
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+
+@include keyframes(fadeIn) {
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+@include keyframes(fade-in-down) {
+	0%{
+		opacity: 0;
+		@include transform(translateY(-7px));
+	}
+	100%{
+		opacity: 1;
+		@include transform(translateY(0));
+	}
+}
+
+@include keyframes(fade-in-right) {
+	0%{
+		opacity: 0;
+		@include transform(translateX(-100px));
+	}
+	100%{
+		opacity: 1;
+		@include transform(translateX(-70px));
+	}
+}
+
+@include keyframes(resetFilters) {
+	0%{
+		opacity: 0;
+		@include transform(scaleY(0));
+	}
+	30%{
+		opacity: 0;
+		@include transform(scaleY(1));
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+  }
+  80%{
+  	opacity: 1;
+  }
+  100% {
+  	opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@include keyframes(spinner) {
+	0%, 100%{
+		-webkit-transform: rotate(0deg);
+    	transform: rotate(0deg);
+    	background-color: $c-yellow;
+	}
+	50%{
+		-webkit-transform: rotate(180deg);
+    	transform: rotate(180deg);
+    	background-color: $c-base;
+	}
+}

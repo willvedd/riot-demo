@@ -1,0 +1,74 @@
+/********************
+** Breakpoints
+********************/
+
+$bp-xsmall:           321;
+$bp-small:            768;
+$bp-medium:           1024;
+$bp-large:            1390;
+
+/********************
+** Media Queries
+********************/
+
+$MQs : true;
+$mq-xsmall:     "only screen and (min-width: #{$bp-xsmall}px)";
+$mq-small:     "only screen and (min-width: #{$bp-small}px)";
+$mq-medium:       "only screen and (min-width: #{$bp-medium}px)";
+$mq-large:       "only screen and (min-width: #{$bp-large}px)";
+
+$mq-small-height:      "only screen and (min-height: 650px) and (min-width: 769px)";//for intelligent homepage resizing
+$mq-medium-height:      "only screen and (min-height: 800px) and (min-width: 769px)";//--
+$mq-large-height:      "only screen and (min-height: 950px) and (min-width: 769px)";//--
+
+
+$mq-retina:     "only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx)";
+$mq-i4:     "screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)";
+$mq-i5:     "screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)";
+$mq-iPad:  "screen and (device-width : 768px)";
+
+/******************** 
+** Media Query Mixin
+********************/
+@mixin bp($point) {
+  @if ($MQs) {
+    @if $point == xsml {
+      @media #{$mq-xsmall} { @content; }
+    }
+    @else if $point == sml {
+      @media #{$mq-small} { @content; }
+    }
+    @else if $point == med {
+      @media #{$mq-medium} { @content; }
+    }
+    @else if $point == lrg {
+      @media #{$mq-large}  { @content; }
+    }
+    @else if $point == retina {
+      @media #{$mq-retina}  { @content; }
+    }
+    @else if $point == i4 {
+      @media #{$mq-i4} { @content; }
+    }
+    @else if $point == i5 {
+      @media #{$mq-i5} { @content; }
+    }
+    @else if $point == iPad {
+      @media #{$mq-iPad} { @content; }
+    }
+    @else if $point == smlHeight {
+      @media #{$mq-small-height} { @content; }
+    }
+    @else if $point == medHeight {
+      @media #{$mq-medium-height} { @content; }
+    }
+    @else if $point == lrgHeight {
+      @media #{$mq-large-height} { @content; }
+    }
+  }
+  @else {
+    @if $point != retina {
+      @content;
+    }
+  }
+}

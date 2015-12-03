@@ -1,0 +1,321 @@
+$signup: 		40px;
+$signup-lrg: 	70px;
+
+.email-signup{
+	width: 100%;
+	max-width: 350px;
+	margin: 20px auto;//centering when blocks start stacking, might need to take this out if this doesn't work goign forward
+
+	@include bp(sml) {
+		margin: 0;
+		width: 50%;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: -5px;
+		padding: 0 15px;
+	}
+	@include bp(med) {
+		padding: 0;
+		margin: 30px 0 5px 0;
+		width: 100%;
+		margin-left: 0;
+		display: block;
+	}
+
+	.email-signup-input,.email-signup-submit {
+		display: inline-block;
+		height: $signup ;
+		vertical-align: bottom;
+	}
+
+	.email-signup-input {
+		padding: 15px;
+		background-color: $c-white;
+		width: calc(100% - #{$signup} );
+	}
+	.email-signup-submit {
+		width: $signup;
+		background-color: $c-base;
+		position: relative;
+		z-index: 0;
+		overflow: hidden;
+		margin-left: -5px;
+
+		&:before {
+			position: absolute;
+			content: "";
+			left: 0;
+			top: 0;
+			background-color: darken($c-base, 10);
+			z-index: -1;
+			height: 100%;
+			width: 100%;
+			@include transform(translateX(-100%));
+			@include transition(transform .25s ease-in-out);
+		}
+		&:after{
+			color: $c-white;
+			display: block;
+			content: '\f429';
+			font-size: 24px;
+			position: relative;
+			font-family: $f-icons;
+			@include transition(transform .25s ease-in-out);
+		}
+		
+		&:hover{
+			&:before{
+				@include transform(translateX(0));
+			}
+			&:after {
+				@include transform(translateX(3px));
+			}
+		}
+	}
+
+	.email-signup-response{
+		font-weight: 600;
+		padding: 15px 25px;
+		@include letter-spacing(20);
+	}
+
+	&.center{
+		margin: 30px auto;
+	}
+
+	&.large{
+		max-width: 525px;
+
+		.email-signup-input,.email-signup-submit {
+			height: $signup-lrg;
+		}
+		.email-signup-input {
+			padding: 30px;
+			width: calc(100% - #{$signup-lrg});
+		}
+		.email-signup-submit {
+			width: $signup-lrg;
+		}
+		.email-signup-response{
+			@include font-size(18);
+		}
+	}
+
+	&.teal{
+		.email-signup-input {
+			background-color: $c-gray-light;
+		}
+		.email-signup-submit{
+			background-color: $c-teal;
+			&:before{
+				background-color: darken($c-teal, 10);
+			}
+		}
+		.email-signup-response{
+			color: $c-teal;
+		}
+	}
+}
+
+span.form-intro{
+	display: block;
+	text-align: center;
+	@include bp(sml) {
+		text-align: left;
+		width: 50%;
+		display: inline-block;
+		padding: 0 15px;
+	}
+	@include bp(med) {
+		padding: 0;
+		width: 100%;
+		display: block;
+	}
+}
+
+.sign-up-contain {
+	padding: 50px 0 0 0;
+	@include bp(sml) {
+		padding: 50px 30px;
+	}
+	@include bp(med) {
+		padding: 50px;
+	}
+	position: relative;
+	&.inset-border-top:before {
+		background-color: $c-teal;
+	}
+}
+
+.donate-form {
+	width: 100%;
+	.border-bottom {
+		padding: 5px 0;
+		margin-bottom: 25px;
+		border-bottom: 1px solid rgba(190,190,190, .5);
+		@include bp(sml) {
+			padding: 10px 0;
+		}
+		@include bp(med) {
+			padding: 25px 0;
+		}
+	}
+	.submit-section {
+		text-align: center;
+		padding: 5px 0;
+		@include bp(sml) {
+			padding: 10px 0;
+		}
+		@include bp(med) {
+			padding: 25px 0;
+		}
+		.btn.solid {
+		    padding: 18px 30px;
+		    perspective: 1px;
+		    @include font-size(12);
+		}
+	}
+	.address-section {
+		padding: 25px 0;
+		text-align: center;
+		.left {
+			margin-bottom: 10px;
+		}
+		@include bp(sml) {
+			padding: 25px 0;
+			text-align: left;
+			.left {
+				margin-bottom: 0px;
+				padding-right: 15px;
+				text-align: right;
+			}
+			.right {
+				padding-left: 15px;
+				p {
+					@include line-height(23);
+				}
+			}
+		}
+		@include bp(med) {
+			padding: 25px 0;
+		}
+	}
+	input[type=text], input[type=tel], input[type=email], select{
+		display: inline-block;
+		border-radius: 0;
+		width: 100%;
+		background-color: $c-gray-light;
+		text-indent: 15px;
+		@include letter-spacing(100);
+		@include line-height(50);
+		@include transition(all .25s linear);
+	}
+	input[type=text], input[type=tel], input[type=email], .select.label {
+		margin-bottom: 25px;
+	}
+	input[type=radio] {
+		position: relative;
+		display: inline-block;
+		float: left;
+		height: 50px;
+		width: 50px;
+		vertical-align: middle;
+		background-color: $c-gray-light;
+		cursor: pointer;
+	}
+	input[type=radio]:checked {
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			height: 2px;
+			width: 40px;
+			background-color: $c-gray-dark;
+			transform: translate(-50%, -50%) rotate(0deg);
+		}
+		&:before {
+			transform: translate(-50%, -50%) rotate(135deg);
+		}
+		&:after {
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
+	}
+	.radio-section {
+		margin: 0 auto;
+		max-width: 90%;
+		margin-bottom: 10px;
+		@include bp(med) {
+			margin-bottom: 50px;
+		}
+	}
+	.radio {
+		margin-bottom: 20px;
+		@include bp(med) {
+			margin-bottom: 0;
+		}
+		.label {
+			padding-left: 20px;
+			display: inline-block;
+			width: calc(100% - 50px);
+			vertical-align: middle;
+			@include line-height(25);
+		}
+	}
+	.select.label {
+		width: 100%;
+		display: inline-block;
+		position: relative;
+		&:after {
+			pointer-events: none;
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 0;
+			height: 0;
+			transform: translate(-75%, -50%);
+			border-style: solid;
+			border-width: 18px 11px 0 11px;
+			border-color: $c-gray-dark transparent transparent transparent;
+		}
+	}
+	p.label {
+		margin-bottom: 10px;
+		@include bp(sml) {
+			margin-bottom: 20px;
+		}
+	}
+	.half,.full {
+		display: inline-block;
+	}
+	.half {
+		width: 100%;
+		@include bp(med) {
+			width: calc(50% - 25px);
+		}
+	}
+	.full {
+		width: 100%;
+	}
+	.left {
+		float: left;
+	}
+	.right {
+		float: right;
+	}
+	select{
+		cursor: pointer;
+	}
+	input[type=text], input[type=tel], input[type=email], select{
+		border: 3px solid transparent;
+		@include transition(all .25s linear);
+		&:hover {
+			background-color: darken($c-gray-light, 10%);
+		}
+		&:focus {
+			border: 3px solid $c-gray;
+			background-color: $c-white;	
+		}
+	}
+
+}

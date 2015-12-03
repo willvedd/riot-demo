@@ -1,0 +1,144 @@
+/********************
+** Grid System
+********************/
+%col{
+	width: 100%;
+	float: left;
+}
+
+.col-two-thirds {
+	@extend %col;
+	@include bp(sml) {
+		width: 66.666666666%;
+	}
+}
+.col-half {
+	@extend %col;
+	@include bp(sml) {
+		width: 50%;
+	}
+}
+.col-three-quarter {
+	@extend %col;
+	@include bp(sml) {
+		width: 75%;
+	}
+}
+.col-third {
+	@extend %col;
+	@include bp(sml) {
+		width: 33.3333333%;
+	}
+}
+.col-quarter {
+	@extend %col;
+	@include bp(sml) {
+		width: 25%;
+	}
+}
+
+.l-faux-table {
+  width: 100%;
+  display: table;
+  //table-layout: fixed;
+}
+
+.col-two-thirds {
+  @extend %col;
+  @include bp(sml) {
+    float: left;
+    width: 66.666666666%;
+  }
+
+  .l-faux-table > & {
+
+    @include bp(sml) {
+      display: table-cell;
+      float: none;
+      vertical-align: top;
+    }
+  }
+  
+}
+
+.col-full {
+    width: 100%;
+}
+
+.col-half {
+  @extend %col;
+  @include bp(sml) {
+    float: left;
+    width: 50%;
+  }
+
+  .l-faux-table > & {
+
+    @include bp(sml) {
+      display: table-cell;
+      float: none;
+      vertical-align: top;
+    }
+  }
+  &.u-verticalAlignMiddle {
+    vertical-align: middle;
+  }
+}
+
+.col-third {
+  @extend %col;
+  @include bp(sml) {
+    float: left;
+    width: 33.333333333%;
+  }
+
+  .l-faux-table > & {
+
+    @include bp(sml) {
+      display: table-cell;
+      float: none;
+      vertical-align: top;
+    }
+  }
+
+}
+
+.col-quarter {
+  @extend %col;
+  @include bp(sml) {
+    float: left;
+    width: 50%;
+  }
+
+  @include bp(med) {
+    width: 25%;
+  }
+
+  .l-faux-table > & {
+
+    @include bp(sml) {
+      display: table-cell;
+      float: none;
+      vertical-align: top;
+    }
+  }
+
+}
+
+.col-three-quarter {
+  @extend %col;
+  @include bp(sml) {
+    float: left;
+    width: 75%;
+  }
+
+  .l-faux-table > & {
+
+    @include bp(sml) {
+      display: table-cell;
+      float: none;
+      vertical-align: top;
+    }
+  }
+
+}

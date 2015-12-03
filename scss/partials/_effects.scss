@@ -1,0 +1,290 @@
+/******************
+ * Hover effects
+ *********/
+
+.h-effect {
+	-webkit-perspective: 1000;
+	&.inset-border {
+		&:after {
+			@include transition(all .5s $ease);
+		}
+	}
+	
+	.inset-border-top, .inset-border-bottom {
+		&:before {
+			@include transition(transform .5s $ease);
+		}
+	}
+	&.billboard, &.circulator {
+		h1 {
+			@include transition(transform .5s $ease);
+		}
+	}
+	&.billboard:hover {
+		&.inset-border {
+				&:after{
+				@include bp(sml) {
+					height: calc( 100% - 34px );
+					width: calc( 100% - 28px );
+				}
+			}
+		}
+		.icon-mww{
+		    top: 20px;
+    		left: 16px;
+		}
+	}
+	&.circulator:hover, &.billboard:hover, &.notch:hover {
+		.map > h1, .timeline > h1 {
+			@include transform(translate(0, -10px));
+		}
+		.btn {
+			&.circle {
+				border-color: transparent;
+				//background-color: $c-white;
+				@include transform(translate(0, 5px));
+				&:before{
+					@include transform(translateX(0));
+				}
+				&:after{
+					color: $c-gray;
+				}
+			}
+			&.solid-arrow.red, &.solid-arrow.white, &.solid-arrow.dark{
+				&:before{
+					@include transform(translateX(0));
+				}
+				&:after{ 
+					left: 7px;
+				}
+			}
+		}
+		&.bg-red {
+			.btn.circle {
+				&:after{
+					color: $c-red;
+				}
+			}
+		}
+		&.bg-teal {
+			.btn.circle {
+				&:after{
+					color: $c-teal;
+				}
+			}
+		}
+		&.bg-blue {
+			.btn.circle {
+				//background-color: $c-teal;
+				&:after{
+					color: $c-blue;
+				}
+			}
+		}
+		&.bg-yellow {
+			.btn.circle {
+				&:after{
+					color: $c-yellow;
+				}
+			}
+		}
+	}
+	&.apa_now{
+		.listing-title{
+			@include transition(color .25s $ease);
+		}
+	}
+	&.apa_now:hover{
+		.listing-title{
+			color: #5BC1C1;
+		}
+	}
+	.smartphone-content:before{
+		@include transition(all .75s $ease);
+		@include transform(0);
+	}
+	&.smartphone:hover{
+		.smartphone-content:before{
+			@include transform(translate(-50%,-50%));
+		}
+	}
+	&.notch{
+		.notch-info:before{
+			@include transition(all .75s $ease);
+		}
+	}
+	&.notch:hover{
+		&.swap{
+			.notch-info:before{ 
+				@include transform(translate(-50%,-50%));
+			}
+		}
+		.notch-info:before{ 
+			@include transform(translate(-25%, 0%));
+		}
+	}
+	&.circulator:hover {
+		.inset-border-top {
+			&:before {
+				@include transform(translate(-50%, 10px));
+			}
+		}
+		.inset-border-bottom,  {
+			&:before {
+				@include transform(translate(-50%, -10px));
+			}
+		}
+	}
+
+	//circular home page callout hover effects
+	&.what.callout{
+		.callout-bg {
+			@include transition(all .35s $ease);
+			@include transform(scale(1));
+		}
+	}
+	&.what.callout:hover {
+		@include bp(med) {
+			.label {
+				left: calc(50% - 20px);
+				i:before {
+					opacity: 1;
+					margin-right: -25px;
+				}
+			}
+			.callout-bg {
+				@include transform(scale(1.05));
+			}
+			.bg-overlay {
+				background-color: rgba(#000, .6);
+			}
+		}
+	}
+	.zoom, &.zoom {
+		.bg-img {
+			@include bp(med) {
+				@include transition(transform .55s $ease);
+			}
+		}
+	}
+	//general zoom img hover effects
+	&:hover {
+		@include bp(med) {
+			.zoom, &.zoom {
+				.bg-img {
+					transform: translate(-50%, -50%) scale(1.05);
+				}
+			}
+		}
+	}
+}
+
+/******************
+ * On Load effects
+ *********/
+.landing, .listing,.notch {
+	opacity: 0;
+	@include transition(opacity 400ms $ease);
+	.icon-mww{
+		@include transition(opacity 800ms $ease);
+		opacity: 0;
+	}
+}
+.billboard.h-effect{
+	opacity: 0;
+	@include transition(opacity 400ms $ease);
+	.icon-mww{
+		@include transition(opacity 800ms $ease);
+		opacity: 0;
+	} 
+}
+.billboard.no-img{//important so that billboard still show up even if no images
+	opacity: 1!important;
+}
+
+.billboard .icon-mww{
+	@include transition(all .5s cubic-bezier(0.550, 0.085, 0.000, 0.990));
+}
+
+.explore-board
+ {
+	opacity: 1!important;
+}
+.ani-loaded {
+	&.billboard, &.billboard .board-content, &.landing, &.listing, &.notch, &.hero, &.related-contain {
+		opacity:1;
+	}
+
+
+	&.landing.apa-now {
+		.entry-title {
+			&:before {
+				width: 100%;
+				left: 0;
+			}
+		}
+	}
+	.icon-mww{
+		opacity: 1;
+	}
+}
+.billboard,.notch,.listing{
+
+	.label{
+		@include transition(all .3s $ease);
+		@include transform(translateY(0));
+	}
+	&:hover{
+		.label{
+			@include transform(translateY(-3px));
+		}
+	}
+}
+
+
+
+/******************
+ * Header effects
+ *********/
+.header-effects{
+	@include bp(sml) {
+		.title-effects{
+			opacity: 0;
+			@include animation(fade-in-down 1s forwards);
+			@include animation-delay(.4s);
+		}
+		.label-effects{
+			opacity: 0;
+			@include animation(fade-in-down 1s forwards);
+			@include animation-delay(.65s);
+		}
+		.sub-effects{
+			opacity: 0; 
+			@include animation(fade-in-down 1s forwards);
+			@include animation-delay(.9s);
+		}
+	}
+}
+.entry-content{
+	@include bp(sml) {
+		opacity: 0;
+		@include animation(fade-in 1.2s forwards);
+	}
+}
+/******************
+ * Hero fadein effects
+ *********/
+.hero-fadein{
+	@include bp(sml) {
+		opacity: 0;
+		@include transition(opacity 1s $ease);
+		@include animation-delay(.1);
+		&.ani-loaded{
+			opacity: 1;
+		}
+	}
+}
+
+
+
+

@@ -1,0 +1,48 @@
+/********************
+** Colors Vars
+********************/
+$c-body:		#FFFFFF;
+$c-base:		#424A4B;//body text color
+$c-white:		#FFFFFF;
+$c-black:		#000000;
+
+$c-gray: 		#BEBEBE;//chicken-block gray and explore art block bg
+$c-gray-light: 	#F1F1F1;//theme button bg 
+$c-gray-dark: 	#3B4043;//mobile nav backdrop
+
+$c-red: 		#EE4528;
+$c-teal: 		#51CBCC;//main teal color (chicken-blocks and text)
+$c-teal-light:	#74DACC;//secondary teal trim color
+ 
+$c-blue:		#effafc;//Buffalo and python background colors
+
+$c-green:		#C9DA2C;//green button border on explore page
+$c-green-dark:  #7AC142;//green for the museum without walls logo
+				
+$c-yellow: 		#FEB914;//standard gold-yellow
+
+$c-tan:			#EEEDE8;//footer-top
+$c-tan-dark:	#DFDCD3;//footer-bottom
+
+/********************
+** Colors Classes
+********************/
+.bg-gray{ background-color: $c-gray; }
+.bg-gray-light{ background-color: $c-gray-light; }
+.bg-blue{ background-color: $c-blue; }
+.bg-red{ background-color: $c-red; }
+.bg-teal{ background-color: $c-teal; }
+.bg-yellow{ background-color: $c-yellow; }
+.bg-white{ background-color: $c-white; }
+
+.text-white{ color: $c-white; }
+.text-gray{ color: $c-gray; }
+.text-blue{ color: $c-blue; }
+.text-red{ color: $c-red; }
+.text-teal{ color: $c-teal; }
+.text-yellow{ color: $c-yellow; }
+.text-base{ color: $c-base;}
+.text-green{color: $c-green-dark; }
+
+
+ 

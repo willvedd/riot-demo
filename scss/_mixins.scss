@@ -1,0 +1,125 @@
+@function get-vw($target) { 
+  $vw-context: (1000*.01) * 1px;
+  @return ($target/$vw-context) * 1vw;
+}
+
+@mixin vw($size) {
+  font-size: get-vw($size);
+}
+
+@mixin backgroundContain{
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+@mixin border-radius($vert, $side, $radius) {
+	border-#{$vert}-#{$side}-radius: $radius;
+}
+
+@mixin font-size($pixelSize: $baseFontSize) {
+    font-size: #{$pixelSize}px;
+    font-size: #{$pixelSize / $baseFontSize}rem;
+}
+
+@mixin line-height($pixelSize: $baseFontSize) {
+    line-height: #{$pixelSize}px;
+    line-height: #{$pixelSize / $baseFontSize}rem;
+}
+
+@mixin letter-spacing($psVal) {//converts photoshop tracking into letter spacing
+    letter-spacing: #{$psVal / 1000}em;
+}
+
+@mixin linear-gradient($colStart, $colEnd) {
+	background:			-webkit-gradient(linear, left top, left bottom, from($colStart), to($colEnd)) 0 0;
+	background:			-moz-linear-gradient(top, $colStart, $colEnd) 0 0;
+	background:			-ms-linear-gradient(top, $colStart, $colEnd);
+	background:			-o-linear-gradient(top, $colStart, $colEnd);
+	//filter:			progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$colStart}, endColorstr=#{$colEnd});
+}
+
+@mixin linear-gradient-bg-image($url, $repeat, $x, $y, $colStart, $colEnd) {
+	background: url($url) $repeat $x $y;
+	background: url($url) $repeat $x $y, -webkit-gradient(linear, left top, left bottom, from($colStart), to($colEnd)) 0 0;
+	background: url($url) $repeat $x $y, -moz-linear-gradient(top, $colStart, $colEnd);
+	background: url($url) $repeat $x $y, -ms-linear-gradient(top, $colStart, $colEnd);
+	background: url($url) $repeat $x $y, -o-linear-gradient(top, $colStart, $colEnd);
+}
+
+@mixin opacity($value) {
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$value * 100}); // ie8
+	filter: alpha(opacity=#{$value * 100}); // ie 6-7
+	opacity: $value; // good browsers
+}
+
+@mixin filter($value) {
+	-webkit-filter: $value;
+	-moz-filter: $value;
+	-o-filter: $value;
+	-ms-filter: $value;
+	filter: $value;
+}
+
+@mixin tap-highlight-color($color) {
+	-webkit-tap-highlight-color:	$color;
+	-moz-tap-highlight-color:		$color;
+	-o-tap-highlight-color:			$color;
+}
+
+@mixin transform($transform) {
+	-webkit-transform:	$transform;
+	-moz-transform:		$transform;
+	-ms-transform:		$transform;
+	-o-transform: 		$transform;
+	transform:			$transform;
+}
+
+@mixin transition($property) {
+	-webkit-transition: $property;
+	-moz-transition: 	$property;
+	-ms-transition: 	$property;
+	-o-transition: 		$property;
+	transition: 		$property;
+}
+
+@mixin wordBreak(){
+	-ms-word-wrap: break-all;
+	word-wrap: break-all;
+	word-wrap: break-word;
+}
+
+@mixin no-user-select(){
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@mixin ui-appearance($value){
+	-webkit-appearance: $value;
+	-moz-appearance:    $value;
+	appearance:         $value;
+}
+
+@mixin hardware-accelerated {
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+	-webkit-perspective: 1000;
+	-moz-perspective: 1000;
+	-ms-perspective: 1000;
+	perspective: 1000;
+}

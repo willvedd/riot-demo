@@ -1,0 +1,79 @@
+ /* IE9 and IE10 rule sets go here */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { 
+   //-- Put your IE specific css class here 
+   	.notch {
+		 .notch-info {
+		 	min-height: 350px;
+		}
+	}
+	.bg-yellow > .callout-contain {
+		width: 350px;
+	}
+	.map-popup-info {
+		width: 500px!important;
+	}
+	.map-popup-info-inner {
+		width: 210px!important;
+	}
+}
+
+@media screen and (min-width:0\0) {
+    .main-navigation-badge{
+		padding-right: 65px;
+	}	
+	.billboard.big{
+		height: 100vh!important;//fix for having columnar
+	}
+}
+
+.ie9 {
+	.flex-img {
+	}
+	.flex-item,
+	.flex-1,
+	.flex-2,
+	.flex-3,
+	.flex-4{
+		float: left;
+	}
+	.billboard{
+		display: block;
+	}
+	.home #page{
+		#masthead{
+			opacity: 1;
+			-webkit-transform: none;
+    		transform: none;
+		}
+	}
+	.billboard .flex-img{
+		height: 400px;
+	}
+	.what-we-do{
+		background-color: blue;
+		height: 500px;
+		opacity: 1;
+		.callout-contain{
+			background-color: orange;
+			//height: 1000px;
+			clear: both;
+		}
+		.callout{
+			padding-top: 0!important;
+			clear: both;
+			display: inline-block!important;
+			width: 50%!important;
+			margin: -3px 20px;
+			opacity: 1!important;
+			background-color: red!important;
+			overflow: visible!important;
+			height: 300px!important;
+			.callout-bg{
+				height: 400px;
+				opacity: 1!important;
+				overflow: visible;
+			}
+		}
+	}
+}

@@ -1,0 +1,402 @@
+/********************
+** Navigation
+********************/
+$nav-height-mobile: 75px;
+$nav-height: 115px;
+
+nav.main-navigation {
+	z-index: 1;
+	position: relative;
+	height: $nav-height-mobile;
+	width: 100%;
+	background-color: $c-gray-dark;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	@include transition(height .25s ease-in-out);
+	@include bp(med) {
+		overflow: hidden;
+		background-color: $c-base;
+		height: $nav-height;
+	}
+	&.main-navigation-open{ 
+		height: 100%;
+		height: 100vh;
+		div.main-navigation-badge #menu-toggle{
+		    .menui {
+		    	height: 3px;
+		    	width: 40px;
+		    	&.top-menu {
+	    		    top: 50%;
+				    transform: translate(-50%, -50%) rotate(135deg);
+		    	}
+		    	&.mid-menu {
+		    		opacity: 0;
+		    	}
+		    	&.bottom-menu {
+	    		    top: 50%;
+				    transform: translate(-50%, -50%) rotate(-135deg);
+		    	}
+		    }
+			&:after{
+				// opacity: 1;
+				// content: '\f406';
+			}
+		}
+		@include bp(med) {
+			background-color: $c-base;
+			height: $nav-height;
+		}
+	}
+	&.main-navigation-home{
+		background-color: rgba($c-gray-dark ,.7);
+	}
+
+	div.main-navigation-badge {
+		display: block;
+		position: relative;
+		background-color: $c-base;
+    	height: $nav-height-mobile;
+    	
+    	@include bp(med) {
+    		background-color: transparent;
+    		height: auto;
+    		display: inline-block;
+    		vertical-align: middle;
+    	}
+
+    	img#logo{
+			width: 150px;
+			position: absolute;
+			top: 50%;
+			margin-left: 15px;
+			@include transform(translateY(-50%));
+
+			@include bp(med) {
+				//reseting mobile styles
+				margin-left: 0;
+				@include transform(translate(0));
+				top: auto;
+				position: relative;
+				width: auto;
+				//
+				display: inline-block;
+				vertical-align: middle;
+				max-width: 372px;
+				height: 100px;
+				padding: 13px 20px 20px 25px;
+	    	}
+	    	@include bp(lrg) {
+	    		padding: 13px 50px 20px 50px;
+	    	}
+		}
+
+		#menu-toggle{
+			display: block;
+			cursor: pointer;
+		    height: $nav-height-mobile;
+		    width: $nav-height-mobile;
+		    display: block;
+		    position: absolute;
+		    right: 0;
+		    top: 0%;
+		    @include transition(background-color .25s linear);
+		    .menui {
+		    	position: absolute;
+		    	width: 30px;
+		    	height: 4px;
+		    	background-color: $c-white;
+		    	top: 50%;
+		    	left: 50%;
+		    	transform: translate(-50%, -50%) rotate(0deg);
+		    	@include transition(all .25s linear);
+		    	&.top-menu {
+		    		top: calc(50% - 10px);
+		    	}
+		    	&.mid-menu {
+		    		opacity: 1;
+		    	}
+		    	&.bottom-menu {
+		    		top: calc(50% + 10px);
+		    	}
+		    }
+		    &:after{
+		    	// content: '\f419';
+		    	// display: block;
+		    	// color: $c-white;
+		    	// font-family: $f-icons;
+		    	// line-height: $nav-height-mobile;
+    			// text-align: center;
+    			// font-size: 30px;
+		    }
+		    @include bp(sml) {
+				&:hover{
+					background-color: darken($c-gray-dark,5);
+				}
+			}
+			@include bp(med) {
+				display: none;
+			}
+		}
+	}
+
+	div.menu-main-container, .utility-nav{
+		width: 100%;
+		display: block;
+		margin-top: 2vh;
+		@include bp(med) {
+			margin-top: 0;
+			display: inline-block;
+			vertical-align: middle;
+			width: auto;
+		}
+
+		ul{
+			li{
+				list-style: none;
+				display: block;
+				width: 100%;
+				text-align: center;
+				position: relative;
+				padding: 2vh 25px;
+				
+				@include bp(med) {
+					padding: 0;
+					width: auto;
+					display: inline-block;
+					margin-left: -4px;
+					&:before{
+						z-index: 1;
+						display: block;
+						position: absolute;
+						bottom: 0;
+						width: 100%;
+						content: "";
+						background-color: #AEB2B3;
+						height: 5px;
+						@include transform(translateY(100%));
+						@include transition(transform .15s ease-in-out);
+					}
+
+					&:hover{
+						@include bp(med) {
+							&:before{
+								@include transform(translateY(0));
+							}
+						}
+					}
+				}
+
+				a{
+					z-index: 0;
+					color: $c-white;
+					text-decoration: none;
+	    			position: relative;
+	    			display: block;
+	    			@include line-height(32);
+	    			@include font-size(22);
+	    			@include letter-spacing(60);
+	    			font-weight: bold;
+	    			@include bp(sml) {
+	    				position: relative;
+	    				display: inline-block;
+	    				&:after{
+	    					@include transition(transform .25s linear);
+	    					content: "";
+	    					width: 100%;
+	    					display: block;
+	    					position: absolute;
+	    					bottom: 2px;
+	    					margin: 0 auto;
+	    					height: 2px;
+	    					@include transform(scaleY(0));
+	    					background-color: #AEB2B3;
+	    				}
+	    				&:hover{
+	    					&:after{
+	    						@include transform(scaleY(1));
+	    					}
+	    				}
+	    			}
+	    			@include bp(med) {
+	    				line-height: $nav-height;
+	    				height: 100%;
+	    				padding: 0 20px;
+	    				@include font-size(16);
+	    				&:after{
+	    					display: none;
+	    				}
+	    			}
+	    			@include bp(lrg) {
+	    				@include font-size(18);
+	    				padding: 0 30px;
+	    			}
+				}
+				&.current-menu-item{
+					a{
+						text-decoration: underline;
+						@include bp(med) {
+							text-decoration: none;
+							font-weight: 600;
+							background-color: #5D6567;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	div.main-navigation-search-contain{
+		display: block;
+		text-align: center;
+		vertical-align: middle;
+		width: 80%;
+		margin: 0 auto 6vh;
+		@include bp(med) {
+			width: auto;
+			margin: 0 0 0 30px;
+			text-align: left;
+			display: inline-block;
+			&:hover{
+				label {
+					width: calc( 100% - 26px );
+				}
+			}
+		}
+
+		form{
+			@include bp(med) {
+				&:focus,&:active{
+					label {
+						width: calc( 100% - 26px );
+					}
+				}
+			}
+		}
+		label {
+			display: inline-block;
+			@include bp(med) {
+				width: 0;
+				@include transition(width .25s ease-in-out);
+			}
+			&.open{
+				width: calc( 100% - 26px );
+			}
+		}
+		input[type='search'] {
+			width: 100%;
+			text-indent: 10px;
+			padding: 10px 0;
+			background-color: transparent;
+			color: $c-white;
+			border-bottom: 1px solid $c-gray;
+			@include font-size(17);
+			@include letter-spacing(20);
+			@include ui-appearance(none);
+			border-radius: 0;
+		}
+
+		button[type='submit']{
+			margin-left: -5px;
+			display: inline-block;
+			width: 40px;
+			padding: 10px 0;
+    		color: transparent;
+    		font-family: $f-icons;
+			color: $c-white;
+			background-color: transparent;
+			border-bottom: 1px solid $c-gray;
+			vertical-align: bottom;
+
+			@include bp(med) {
+				border-bottom: none;
+				width: 25px;
+				&:after{
+					font-size: 26px;
+				}
+			}
+			&:after{
+				font-size: 22px;
+				content:'\f400';
+				display: block;
+				font-family: $f-icons;
+				color: $c-white;
+			}
+		}
+	}
+	.btn-contain {
+		text-align: center;
+		display: block;
+		margin-bottom: 5vh;
+		@include bp(med) {
+			margin-bottom: 0;
+			display: inline;
+		}
+	}
+	a.main-navigation-donate-button{	    
+	    @include bp(med) {
+			position: absolute;
+	    	@include transform(translate(0,-50%));
+	    	left: inherit;
+		    top: 50%;
+		    right: 30px;
+	    }
+	}
+}
+
+.utility-social, .utility-nav {
+	text-align: center;
+	
+	@include bp(med) {
+		display: none;
+	}
+}
+.utility-social {
+	ul {
+		display: inline-block;
+	}
+	li {
+		list-style: none;
+		float: left;
+		margin: 0 10px;
+		a.social {
+			margin: 0;
+		}
+		a.social:after {
+			color: $c-white;
+		}
+	}
+}
+nav.main-navigation {
+	.utility-nav {
+		width: 90%;	
+		margin: 2vh auto;
+		li {
+			list-style: none;
+			margin: 4vh auto;
+			padding: 0!important;
+			width: 50%!important;
+			a {	
+				line-height: 1pc!important;
+				font-size: 1pc!important;
+			}
+		}
+	} 
+}
+
+@-moz-document url-prefix() { //firefox specific fix
+	div.main-navigation-search-contain label{
+		margin-bottom: -10px;
+	}
+}
+
+.site-header.home {
+	@include bp(med) {
+		position: absolute;
+		width: 100%;
+	}
+	.main-navigation {
+		@include bp(med) {
+			background-color: rgba($c-gray-dark, .7);
+		}
+	}
+}

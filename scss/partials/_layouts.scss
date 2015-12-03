@@ -1,0 +1,117 @@
+/********************
+** Container
+********************/
+
+#page{
+	position: relative;
+	width: 100%;
+	max-width: 1590px;
+	min-height: 100%;
+	height: auto;
+	margin: 0 auto;
+	padding: 0;
+	box-shadow: 0px 4px 8px #9D9D9D;
+}
+
+.l-container, .l-container-sm, .l-container-lg {
+  width: 90%;
+  height: auto;
+  margin: 0 auto; 
+  @include bp(lrg) {
+    width: 100%;
+  }
+}
+
+.l-container-sm {
+  max-width: 550px;
+}
+
+.l-container {
+  max-width: 860px;
+}
+
+.l-container-lg {
+  max-width: 1250px;
+}
+
+.l-row {
+  padding: 30px 0;
+  @include bp(sml) {
+    padding: 45px 0;
+  }
+  @include bp(lrg) {
+    padding: 60px 0;
+  }
+}
+
+.l-row-sm {
+  padding: 30px 0;
+  @include bp(sml) {
+    padding: 45px 0;
+  }
+}
+
+/********************
+** Flex layouts
+********************/
+
+@mixin flex{
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex; 
+}
+@mixin flex-item($flex:1){
+  width: 100%;               	/* For old syntax, otherwise collapses. */
+  -webkit-box-flex: $flex;      /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $flex;         /* OLD - Firefox 19- */
+  -webkit-flex: $flex;          /* Chrome */
+  -ms-flex: $flex;              /* IE 10 */
+  flex: $flex;
+  min-width: 0; 
+}
+@mixin flex-center {
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.flex-contain{
+	@include flex;
+  &.flex-col {
+    flex-direction: column;
+  }
+}
+
+
+.flex-contain-wrap{
+  @extend .flex-contain;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.flex-item{
+	@include flex-item(1);
+}
+.flex-1{
+	@include flex-item(1);
+}
+.flex-2{
+	@include flex-item(2);
+}
+.flex-3{ 
+	@include flex-item(3);
+}
+.flex-4{
+	@include flex-item(4);
+}
+
+.flex-center{
+  @include flex-center;
+}
+.flex-basis{
+  flex-basis: auto;
+}
