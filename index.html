@@ -14,6 +14,7 @@
 	        FastClick.attach(document.body);
 	    }, false);
 	}</script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="js/tags/app.tag" type="riot/tag"></script>
 	<script src="js/tags/map.tag" type="riot/tag"></script>
 	<script src="js/tags/ui.tag" type="riot/tag"></script>
@@ -27,7 +28,7 @@
 		var exploreStore = new ExploreStore(); // Create a store instance.
 	  	RiotControl.addStore(exploreStore); // Register the store in central dispatch.
 
-		loadJSON('http://dev-publicart.pantheon.io/api/apa/explore',
+		loadJSON('http://test-publicart.pantheon.io/api/apa/explore',
 			function(data) {
 				window.artworks = data.artworks;
 				window.themes = data.themes;
