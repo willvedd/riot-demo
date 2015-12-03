@@ -7,7 +7,6 @@
 				<h1 class="title serif-cond"><raw content="{title}"></raw><span if="{year}" class="gallery-artwork-year"> ({year})</span></h1>
 				<p class="squart-subtitle"><span each="{artist_val in artist}">{artist_val}<br></span></p>
 			</div>
-			<a href="{url}"><span class="screen-reader-text">View full content of {title}</span></a>
 		</div>
 		<div if="{featured}" class="flex-1 flex-img">
 			<div if="{img}" class="bg-img" style="background-image:url({img.big});"></div>
@@ -21,7 +20,6 @@
 				<h1 class="serif-cond"><raw content="{title}"></raw><span if="{year}" class="artwork-year"> ({year})</span></h1>
 				<p class="billboard-medium-artist tracking-25">by <span each="{artist_val in artist}">{artist_val}<br></span></p>
 				<raw if="{excerpt}" class="desc" content="{excerpt}"></raw> 
-				<a href="{url}" class="btn solid-arrow white">See Artwork</a>
 			</div>
 		</div>
 	</article>

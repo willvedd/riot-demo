@@ -32,7 +32,7 @@
 		})();
 
 		regMarker = {
-			url: 'images/pin_red'+urlMod+'.png',
+			url: '/images/pin_red'+urlMod+'.png',
 			size: markerSize,
 			scaledSize: markerScale,
 			origin:markerOrigin,
@@ -121,7 +121,6 @@
 			lon:p.lon,
 			themes: p.themes,
 			title: p.title,
-			url: p.url,
 			year: p.year,
 		});
 
@@ -163,7 +162,6 @@
 				region: artItem.region,
 				themes: artItem.themes,
 				title: artItem.title,
-				url: artItem.url,
 				year: artItem.year,
 			},i);
 		})
@@ -254,13 +252,13 @@
 			if(p.mww){
 				p.imgMarkup = 
 				'<div class="map-popup-img-contain flex-1">'+
-					'<a href="'+p.url+'"><span class="icon-mww"></span><img src="' + p.img + '"></a>' +
+					'<span class="icon-mww"></span><img src="' + p.img + '">' +
 				'</div>';
 			}
 			else{
 				p.imgMarkup = 
 				'<div class="map-popup-img-contain flex-1">'+
-					'<a href="'+p.url+'"><img src="' + p.img + '"></a>' +
+					'<img src="' + p.img + '">' +
 				'</div>';
 			}
 		}else{
@@ -287,7 +285,7 @@
 	    		p.imgMarkup +
 	            '<div class="map-popup-info flex-2">'+
 	            	'<div class="map-popup-info-inner">'+
-		            	'<h1 class="serif-cond title"><a href="'+ p.url+'">'+ p.title + p.year_display + '</a></h1>' + 
+		            	'<h1 class="serif-cond title">'+ p.title + p.year_display + '</h1>' + 
 		            	'<p>by ' + p.artist_display + '</p>'+
 		            	'<div class="map-popup-location">'+
 			            	'<span class="map-popup-location-icon"></span>'+
@@ -295,7 +293,6 @@
 			            		p.location+
 			            	'</div>' +
 			            '</div>'+
-						'<a href="'+p.url+'" class="btn solid-arrow gray">Learn More</a>' +
 					'</div>'+
 	            '</div>'+
 	    	'</article>');

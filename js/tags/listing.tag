@@ -14,11 +14,11 @@
 	</div>
 
 	<ul if="{titleSort}" id="listing-list">
-		<li class="listing-item" each="{result in results}" letter-first="{letterLogic(result)}"><a href="{result.url}"><span class="listing-item-title"><raw content="{result.title}"></raw><span class="listing-item-title-year" if="{result.year}"> ({result.year})</span></span>by {artistDisplay(result.artist)}</li></a>
+		<li class="listing-item" each="{result in results}" letter-first="{letterLogic(result)}"><span class="listing-item-title"><raw content="{result.title}"></raw><span class="listing-item-title-year" if="{result.year}"> ({result.year})</span></span>by {artistDisplay(result.artist)}</li>
 	</ul>
 	<ul if="{!titleSort}" id="listing-list">
 		<li class="listing-item" each="{result in results}" letter-first="{letterLogic(result)}">
-			<a href="{result.url}"><span class="listing-item-title listing-item-title-artist">{artistDisplay(result.artist_formatted)}</span> – <span class="italic"><raw content="{result.title}"></raw></span><span if="{result.year}"> ({result.year})</span></a></li>
+			<span class="listing-item-title listing-item-title-artist">{artistDisplay(result.artist_formatted)}</span> – <span class="italic"><raw content="{result.title}"></raw></span><span if="{result.year}"> ({result.year})</span></li>
 	</ul>
 	<div if="{results.length == 0}" class="resetFilters">
 		<h1>No results match your filter criteria. <a href="#" role="button" onclick="{resetFilters}">Reset your filtering options</a>.</h1>
