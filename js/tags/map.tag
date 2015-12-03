@@ -32,14 +32,14 @@
 		})();
 
 		regMarker = {
-			url: window.imgDir+'pin_red'+urlMod+'.png',
+			url: 'images/pin_red'+urlMod+'.png',
 			size: markerSize,
 			scaledSize: markerScale,
 			origin:markerOrigin,
 			anchor: markerAnchor,
  		},
 		mwwMarker = {
-			url: window.imgDir+'pin_green'+urlMod+'.png',
+			url: 'images/pin_green'+urlMod+'.png',
 			// This marker is 20 pixels wide by 32 pixels tall.
 			size: markerSize,
 			scaledSize: markerScale,
@@ -47,14 +47,14 @@
 			anchor: markerAnchor,
  		},
  		regMarkerFaded = {
-			url: window.imgDir+'pin_red_faded'+urlMod+'.png',
+			url: 'images/pin_red_faded'+urlMod+'.png',
 			size: markerSize,
 			scaledSize: markerScale,
 			origin:markerOrigin,
 			anchor: markerAnchor,
  		},
  		mwwMarkerFaded = {
-			url: window.imgDir+'pin_green_faded'+urlMod+'.png',
+			url: 'images/pin_green_faded'+urlMod+'.png',
 			size: markerSize,
 			scaledSize: markerScale,
 			origin:markerOrigin,
