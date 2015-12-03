@@ -32,7 +32,7 @@
 		})();
 
 		regMarker = {
-			url: '/images/pin_red'+urlMod+'.png',
+			url: 'images/pin_red'+urlMod+'.png',
 			size: markerSize,
 			scaledSize: markerScale,
 			origin:markerOrigin,
